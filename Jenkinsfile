@@ -18,6 +18,9 @@ pipeline {
     stage('Deploy') {
       steps {
         sh 'mvn spring-boot:run'
+        sleep(time: 2, unit: 'MINUTES')
+        sh '^C'
+        cleanWs()
       }
     }
 
