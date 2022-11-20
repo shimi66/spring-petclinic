@@ -11,7 +11,7 @@ pipeline {
 
     stage('scan') {
       steps {
-        sh 'mvn sonar:sonar -Dsonar.login=sqa_4c615c8b416aa2424b29a852a0db1f73829c3aeb'
+        sh 'mvn sonar:sonar -Dsonar.login=sqa_940a9352beea22be11c089e4b9016f27af588a18'
       }
     }
 
