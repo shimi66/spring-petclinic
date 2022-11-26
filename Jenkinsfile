@@ -28,7 +28,7 @@ pipeline {
 
         stage('Ansible Deploy') {
           steps {
-            sh 'echo "do ansible things here"'
+            sh 'ping 172.21.177.25'
           }
         }
 
