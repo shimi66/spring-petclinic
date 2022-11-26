@@ -16,22 +16,8 @@ pipeline {
     }
 
     stage('Deploy') {
-      parallel {
-        stage('Deploy') {
-          steps {
-            sh 'mvn spring-boot:run'
-            sleep(time: 2, unit: 'MINUTES')
-            sh '^C'
-            cleanWs()
-          }
-        }
-
-        stage('Ansible Deploy') {
-          steps {
-            sh 'ping 172.21.177.25'
-          }
-        }
-
+      steps {
+        sh 'mvn spring-boot:run'
       }
     }
 
