@@ -12,8 +12,8 @@
                     group: vagrant
                     mode: '0774'
 
-          - name: change dir
-            ansible.builtin.command: cd ~/petclinic/spring-petclinic_main
-
           - name: run jar
-            ansible.builtin.command: mvn spring-boot:run
+            shell:
+                    "mvn spring-boot:run"
+            args:
+                    chdir: "~/petclinic/spring-petclinic_main"
