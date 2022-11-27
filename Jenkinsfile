@@ -25,7 +25,7 @@ pipeline {
 
         stage('Asible Deploy') {
           steps {
-            sh 'ansible-playbook hw2_playbook.yaml -v --ask-pass'
+            sh 'echo "vagrant" > ansible-playbook hw2_playbook.yaml -v --ask-pass'
           }
         }
 
