@@ -1,0 +1,19 @@
+---
+- name: Push petclinic to hosts
+  hosts: devops_hw2
+  remote_user: vagrant
+
+  tasks:
+          - name: Copy jar to remote host
+            copy:
+                    src: /var/lib/jenkins/workspace/spring-petclinic_main
+                    dest: ~/petclinic
+                    owner: vagrant
+                    group: vagrant
+                    mode: '0774'
+
+          - name: change dir
+            ansible.builtin.command: cd ~/petclinic/spring-petclinic_main
+
+          - name: run jar
+            ansible.builtin.command: mvn spring-boot:run
