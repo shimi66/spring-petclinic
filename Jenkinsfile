@@ -26,6 +26,7 @@ pipeline {
         stage('Asible Deploy') {
           steps {
             ansiblePlaybook(playbook: 'hw2_playbook.yaml', disableHostKeyChecking: true)
+            sh 'ansible-playbook hw2_playbook.yaml -v --ask-pass'
           }
         }
 
