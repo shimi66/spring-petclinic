@@ -15,9 +15,20 @@ pipeline {
       }
     }
 
-    stage('Deploy') {
-      steps {
-        sh 'mvn spring-boot:run'
+    stage('Deploy Local') {
+      parallel {
+        stage('Deploy Local') {
+          steps {
+            sh 'mvn spring-boot:run'
+          }
+        }
+
+        stage('Asible Deploy') {
+          steps {
+            ansiblePlaybook(playbook: 'hw2_playbook.yaml', disableHostKeyChecking: true)
+          }
+        }
+
       }
     }
 
